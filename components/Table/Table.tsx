@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Box, Card, TextInput, Group, Modal } from "@mantine/core";
+import { Box, Card, TextInput, Group } from "@mantine/core";
 import { useDebouncedValue } from "@mantine/hooks";
 import { DataTable, DataTableSortStatus } from "mantine-datatable";
 import sortBy from "lodash/sortBy";
