@@ -1,4 +1,4 @@
-import App from "app/emotion";
+import App from "app/wrapper";
 
 export default function RootLayout({
   children,
