@@ -1,10 +1,10 @@
 "use client";
 
-import { FC, useState } from "react";
+import { useState } from "react";
 import { Button, Modal } from "@mantine/core";
 import { Tool } from "tabler-icons-react";
 
-export const Create: FC = () => {
+export const Create = () => {
   const [createOpened, setCreateOpened] = useState(false);
 
   return (

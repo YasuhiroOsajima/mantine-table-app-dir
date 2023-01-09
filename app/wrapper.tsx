@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
   },
 });
 
-export default function App({ children }: { children: React.ReactNode }) {
+export const App = ({ children }: { children: React.ReactNode }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <MantineProvider
@@ -32,4 +32,4 @@ export default function App({ children }: { children: React.ReactNode }) {
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
-}
+};

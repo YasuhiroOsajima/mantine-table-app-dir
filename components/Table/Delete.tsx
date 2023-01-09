@@ -1,6 +1,5 @@
 "use client";
 
-import { FC } from "react";
 import { Button } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 
@@ -12,7 +11,7 @@ type Props = {
   selectedRecords: Employee[];
 };
 
-export const Delete: FC<Props> = (prop) => {
+export const Delete = (prop: Props) => {
   return (
     <Button
       uppercase

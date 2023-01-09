@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Card, TextInput, Group, Modal } from "@mantine/core";
 import { useDebouncedValue } from "@mantine/hooks";
 import { DataTable, DataTableSortStatus } from "mantine-datatable";
@@ -15,7 +15,7 @@ import { Employee } from "types/data";
 
 const PAGE_SIZE = 14;
 
-export const Table: FC = () => {
+export const Table = () => {
   const [initialRecords, setInitialRecords] = useState<Employee[]>([]);
   const [allRecords, setAllRecords] = useState<Employee[]>([]);
 
