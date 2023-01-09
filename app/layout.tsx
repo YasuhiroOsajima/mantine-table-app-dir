@@ -1,12 +1,16 @@
+import App from "app/emotion";
+
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html lang="en-US">
       <head />
-      <body>{children}</body>
+      <body>
+        <App>{children}</App>
+      </body>
     </html>
-  )
+  );
 }

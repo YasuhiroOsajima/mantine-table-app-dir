@@ -1,3 +1,23 @@
-export default function Home() {
-  return <main>Hello Next.js 13</main>;
-}
+
+"use client";
+
+import type { NextPage } from "next";
+import { Grid } from "@mantine/core";
+
+import { Table } from "components/Table/Table";
+import { MessageArea } from "components/MessageArea";
+
+const Home: NextPage = () => {
+  return (
+    <Grid gutter="xs">
+      <Grid.Col span={8}>
+        <Table />
+      </Grid.Col>
+      <Grid.Col span={4}>
+        <MessageArea />
+      </Grid.Col>
+    </Grid>
+  );
+};
+
+export default Home;
