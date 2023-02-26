@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { Grid } from "@mantine/core";
 
-import { Header } from "components/Header";
+import { Header } from "components/Header/Header";
 
 import "../styles/globals.css";
 
