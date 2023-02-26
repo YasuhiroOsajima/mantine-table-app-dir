@@ -7,10 +7,7 @@ export const DrawerContent = () => {
   return (
     <>
       <Link href="/">
-        <NavLink
-          label="With icon"
-          icon={<IconHome2 size={16} stroke={1.5} />}
-        />
+        <NavLink label="Table" icon={<IconHome2 size={16} stroke={1.5} />} />
       </Link>
     </>
   );
