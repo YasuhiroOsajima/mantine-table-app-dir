@@ -1,5 +1,6 @@
 "use client";
 
+import { RecoilRoot } from "recoil";
 import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -31,12 +32,14 @@ export const App = ({ children }: { children: React.ReactNode }) => {
         }}
       >
         <NotificationsProvider limit={2}>
-          <Grid className="pb-1">
-            <Grid.Col span={12}>
-              <Header />
-            </Grid.Col>
-          </Grid>
-          {children}
+          <RecoilRoot>
+            <Grid className="pb-1">
+              <Grid.Col span={12}>
+                <Header />
+              </Grid.Col>
+            </Grid>
+            {children}
+          </RecoilRoot>
         </NotificationsProvider>
       </MantineProvider>
       <ReactQueryDevtools initialIsOpen={false} />
