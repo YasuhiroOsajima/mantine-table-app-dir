@@ -30,24 +30,24 @@ export const Table = () => {
 
   // Filter
   const [filteredRecords, setFilteredRecords] = useState(initialRecords);
-  const [query, setQuery] = useState("");
-  const [debouncedQuery] = useDebouncedValue(query, 200);
+  const [updatedFilterWord, setFilterWord] = useState("");
+  const [filterWord] = useDebouncedValue(updatedFilterWord, 200);
 
   useEffect(() => {
     setFilteredRecords(
       initialRecords.filter(({ firstName, email }) => {
         if (
-          debouncedQuery !== "" &&
+          filterWord !== "" &&
           !`${firstName} ${email}`
             .toLowerCase()
-            .includes(debouncedQuery.trim().toLowerCase())
+            .includes(filterWord.trim().toLowerCase())
         ) {
           return false;
         }
         return true;
       })
     );
-  }, [debouncedQuery, initialRecords]);
+  }, [filterWord, initialRecords]);
 
   // Pagination
   const [page, setPage] = useState(1);
@@ -112,8 +112,8 @@ export const Table = () => {
             sx={{ flexBasis: "60%" }}
             placeholder="Search employees..."
             icon={<Search size={16} />}
-            value={query}
-            onChange={(e) => setQuery(e.currentTarget.value)}
+            value={updatedFilterWord}
+            onChange={(e) => setFilterWord(e.currentTarget.value)}
           />
           <Create></Create>
           <Delete selectedRecords={selectedRecords}></Delete>
