@@ -20,12 +20,19 @@ type ColumnProps = {
   render?: ({ arg }: any) => any;
 };
 
+type GetRecordsResultProps = {
+  data: { records: any };
+  isLoading: boolean;
+  isError: boolean;
+  error: unknown;
+};
+
 type Props = {
   initialRecordsAtom: RecoilState<any[]>;
   allRecordsAtom: RecoilState<any[]>;
   initialSortColumn: string;
   columns: ColumnProps[];
-  GetRecords: () => UseQueryResult<any, any>;
+  getRecordsResult: GetRecordsResultProps;
 };
 
 export const Table: React.FC<Props> = ({
@@ -33,19 +40,17 @@ export const Table: React.FC<Props> = ({
   allRecordsAtom,
   initialSortColumn,
   columns,
-  GetRecords,
+  getRecordsResult,
 }) => {
   const [initialRecords, setInitialRecords] =
     useRecoilState(initialRecordsAtom);
   const [allRecords, setAllRecords] = useRecoilState(allRecordsAtom);
 
-  const { data, isLoading, isError, error } = GetRecords();
+  const { data, isLoading, isError, error } = getRecordsResult;
 
   useEffect(() => {
-    if (data !== undefined) {
-      setInitialRecords(data.records);
-      setAllRecords(data.records);
-    }
+    setInitialRecords(data.records);
+    setAllRecords(data.records);
   }, [data, setAllRecords, setInitialRecords]);
 
   // Filter

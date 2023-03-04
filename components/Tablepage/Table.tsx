@@ -7,6 +7,7 @@ import { AllEmployeeRecordsAtom } from "~/state/AllEmployeeRecordsAtom";
 
 import { Table } from "components/Table/Table";
 import { GetEmployees } from "apiClient/getEmployees";
+import { Employee } from "~/types/data";
 
 type firstNameProps = {
   firstName: string;
@@ -41,13 +42,24 @@ export const TablepageTable = () => {
     },
   ];
 
+  const getEmployeeRecords = () => {
+    const { data, isLoading, isError, error } = GetEmployees();
+
+    var records: Employee[] = [];
+    if (data !== undefined) {
+      records = data.employees;
+    }
+
+    return { data: { records }, isLoading, isError, error };
+  };
+
   return (
     <>
       <Table
         initialRecordsAtom={InitialEmployeeRecordsAtom}
         allRecordsAtom={AllEmployeeRecordsAtom}
         initialSortColumn="firstName"
-        GetRecords={GetEmployees}
+        getRecordsResult={getEmployeeRecords()}
         columns={columns}
       />
     </>

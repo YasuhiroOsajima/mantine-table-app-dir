@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 
-import { EmployeeRecords } from "types/data";
+import { Employees } from "types/data";
 
 const fetchEmployees = async () => {
   const { data } = await axios.get("http://127.0.0.1:3000/api/getEmployees");
@@ -9,7 +9,7 @@ const fetchEmployees = async () => {
 };
 
 export const GetEmployees = () => {
-  return useQuery<EmployeeRecords>({
+  return useQuery<Employees>({
     queryKey: ["GetEmployees"],
     queryFn: fetchEmployees,
     staleTime: 0,
