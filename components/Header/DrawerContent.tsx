@@ -5,10 +5,10 @@ import Link from "next/link";
 import { NavLink } from "@mantine/core";
 import { IconHome2, IconBorderAll } from "@tabler/icons";
 
-import { DrawerOpenAtom } from "~/state/DrawerOpenAtom";
+import { DrawerOpenAtom } from "state/DrawerOpenAtom";
 
 export const DrawerContent = () => {
-  const [opened, setOpened] = useRecoilState(DrawerOpenAtom);
+  const [_, setOpened] = useRecoilState(DrawerOpenAtom);
 
   return (
     <>

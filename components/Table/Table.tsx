@@ -10,6 +10,7 @@ import { Search } from "tabler-icons-react";
 
 import { Create } from "components/Table/Create";
 import { Delete } from "components/Table/Delete";
+
 import { GetEmployees } from "apiClient/getEmployees";
 import { Employee } from "types/data";
 
