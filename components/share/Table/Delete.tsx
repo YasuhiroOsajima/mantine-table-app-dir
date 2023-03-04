@@ -5,7 +5,7 @@ import { showNotification } from "@mantine/notifications";
 
 import { Trash } from "tabler-icons-react";
 
-import { Employee } from "types/data";
+import { Employee } from "types/employee";
 
 type Props = {
   selectedRecords: Employee[];

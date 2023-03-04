@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, Text } from "@mantine/core";
-import React from "react";
 
 export function MessageArea() {
   return (

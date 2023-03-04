@@ -9,8 +9,8 @@ import { DataTable, DataTableSortStatus } from "mantine-datatable";
 import sortBy from "lodash/sortBy";
 import { Search } from "tabler-icons-react";
 
-import { Create } from "components/Table/Create";
-import { Delete } from "components/Table/Delete";
+import { Create } from "components/share/Table/Create";
+import { Delete } from "components/share/Table/Delete";
 
 const PAGE_SIZE = 14;
 

@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-import { Employee } from "types/data";
+import { Employee } from "types/employee";
 
 export const AllEmployeeRecordsAtom = atom({
   key: "allEmployeeRecords",

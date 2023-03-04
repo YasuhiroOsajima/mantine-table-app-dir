@@ -5,7 +5,7 @@ import { Card, Drawer, Group, Text, Stack } from "@mantine/core";
 import { IconMenu2 } from "@tabler/icons";
 
 import { DrawerContent } from "./DrawerContent";
-import { DrawerOpenAtom } from "~/state/DrawerOpenAtom";
+import { DrawerOpenAtom } from "state/DrawerOpenAtom";
 
 export const Header = () => {
   const [opened, setOpened] = useRecoilState(DrawerOpenAtom);
