@@ -21,7 +21,7 @@ type ageProps = {
   birthDate: string;
 };
 
-export const TablepageTable = () => {
+export const TablePageTable = () => {
   const columns = [
     {
       accessor: "firstName",

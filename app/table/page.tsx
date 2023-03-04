@@ -4,8 +4,8 @@ import type { NextPage } from "next";
 import { Grid } from "@mantine/core";
 
 import { Header } from "components/share/Header/Header";
-import { TablepageTable } from "components/tablePage/Table";
-import { MessageArea } from "components/tablePage/MessageArea";
+import { TablePageTable } from "components/tablePage/Table";
+import { TablePageMessageArea } from "components/tablePage/MessageArea";
 
 const Home: NextPage = () => {
   return (
@@ -17,10 +17,10 @@ const Home: NextPage = () => {
       </Grid>
       <Grid gutter="xs">
         <Grid.Col span={8}>
-          <TablepageTable />
+          <TablePageTable />
         </Grid.Col>
         <Grid.Col span={4}>
-          <MessageArea />
+          <TablePageMessageArea />
         </Grid.Col>
       </Grid>
     </>

@@ -2,9 +2,10 @@
 
 import type { NextPage } from "next";
 import { Grid } from "@mantine/core";
-import { Accordion } from "@mantine/core";
 
 import { Header } from "components/share/Header/Header";
+import { MainPageAccordion } from "components/mainPage/Accordion";
+import { MainPageMessageArea } from "components/mainPage/MessageArea";
 
 const Home: NextPage = () => {
   return (
@@ -15,31 +16,14 @@ const Home: NextPage = () => {
         </Grid.Col>
       </Grid>
 
-      <Accordion defaultValue="customization">
-        <Accordion.Item value="customization">
-          <Accordion.Control>Customization</Accordion.Control>
-          <Accordion.Panel>
-            Colors, fonts, shadows and many other parts are customizable to fit
-            your design needs
-          </Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item value="flexibility">
-          <Accordion.Control>Flexibility</Accordion.Control>
-          <Accordion.Panel>
-            Configure components appearance and behavior with vast amount of
-            settings or overwrite any part of component styles
-          </Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item value="focus-ring">
-          <Accordion.Control>No annoying focus ring</Accordion.Control>
-          <Accordion.Panel>
-            With new :focus-visible pseudo-class focus ring appears only when
-            user navigates with keyboard
-          </Accordion.Panel>
-        </Accordion.Item>
-      </Accordion>
+      <Grid className="pl-1 pr-1">
+        <Grid.Col span={12}>
+          <MainPageMessageArea />
+        </Grid.Col>
+        <Grid.Col span={12}>
+          <MainPageAccordion />
+        </Grid.Col>
+      </Grid>
     </>
   );
 };
