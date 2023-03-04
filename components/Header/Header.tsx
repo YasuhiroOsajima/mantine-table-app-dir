@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useRecoilState } from "recoil";
 import { Card, Drawer, Group, Text, Stack } from "@mantine/core";
 import { IconMenu2 } from "@tabler/icons";
 
 import { DrawerContent } from "./DrawerContent";
+import { DrawerOpenAtom } from "~/state/DrawerOpenAtom";
 
 export const Header = () => {
-  const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useRecoilState(DrawerOpenAtom);
+
   return (
     <Card shadow="sm" radius="md" withBorder className="h-15 bg-red-200 px-2">
       <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
