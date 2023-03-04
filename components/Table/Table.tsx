@@ -1,32 +1,52 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRecoilState, RecoilState } from "recoil";
+import { UseQueryResult } from "react-query";
 import { Box, Card, TextInput, Group } from "@mantine/core";
 import { useDebouncedValue } from "@mantine/hooks";
 import { DataTable, DataTableSortStatus } from "mantine-datatable";
 import sortBy from "lodash/sortBy";
-import dayjs from "dayjs";
 import { Search } from "tabler-icons-react";
 
 import { Create } from "components/Table/Create";
 import { Delete } from "components/Table/Delete";
 
-import { GetEmployees } from "apiClient/getEmployees";
-import { Employee } from "types/data";
-
 const PAGE_SIZE = 14;
 
-export const Table = () => {
-  const [initialRecords, setInitialRecords] = useState<Employee[]>([]);
-  const [allRecords, setAllRecords] = useState<Employee[]>([]);
+type ColumnProps = {
+  accessor: string;
+  sortable?: boolean;
+  render?: ({ arg }: any) => any;
+};
 
-  const { data, isLoading, isError, error } = GetEmployees();
+type Props = {
+  initialRecordsAtom: RecoilState<any[]>;
+  allRecordsAtom: RecoilState<any[]>;
+  initialSortColumn: string;
+  columns: ColumnProps[];
+  GetRecords: () => UseQueryResult<any, any>;
+};
+
+export const Table: React.FC<Props> = ({
+  initialRecordsAtom,
+  allRecordsAtom,
+  initialSortColumn,
+  columns,
+  GetRecords,
+}) => {
+  const [initialRecords, setInitialRecords] =
+    useRecoilState(initialRecordsAtom);
+  const [allRecords, setAllRecords] = useRecoilState(allRecordsAtom);
+
+  const { data, isLoading, isError, error } = GetRecords();
+
   useEffect(() => {
     if (data !== undefined) {
-      setInitialRecords(data.employee);
-      setAllRecords(data.employee);
+      setInitialRecords(data.records);
+      setAllRecords(data.records);
     }
-  }, [data]);
+  }, [data, setAllRecords, setInitialRecords]);
 
   // Filter
   const [filteredRecords, setFilteredRecords] = useState(initialRecords);
@@ -60,18 +80,18 @@ export const Table = () => {
   }, [filteredRecords, page]);
 
   // Sort
-  const [sortStatus, setSortStatus] = useState<DataTableSortStatus>({
-    columnAccessor: "firstName",
-    direction: "asc",
-  });
-  const [viewRecords, setViewRecords] = useState(
-    sortBy(paginatedRecords, "firstName")
+  const [sortedRecords, setSortedRecords] = useState(
+    sortBy(paginatedRecords, initialSortColumn)
   );
 
   useEffect(() => {
-    setViewRecords(paginatedRecords);
+    setSortedRecords(paginatedRecords);
   }, [paginatedRecords]);
 
+  const [sortStatus, setSortStatus] = useState<DataTableSortStatus>({
+    columnAccessor: initialSortColumn,
+    direction: "asc",
+  });
   const handleSortStatusChange = (status: DataTableSortStatus) => {
     setPage(1);
     setSortStatus(status);
@@ -82,10 +102,10 @@ export const Table = () => {
     setInitialRecords(
       sortStatus.direction === "desc" ? sortedRecords.reverse() : sortedRecords
     );
-  }, [allRecords, sortStatus]);
+  }, [allRecords, setInitialRecords, sortStatus]);
 
   // Select
-  const [selectedRecords, setSelectedRecords] = useState<Employee[]>([]);
+  const [selectedRecords, setSelectedRecords] = useState<any[]>([]);
 
   if (isLoading) {
     return (
@@ -110,7 +130,7 @@ export const Table = () => {
         <Group position="left" mb="md">
           <TextInput
             sx={{ flexBasis: "60%" }}
-            placeholder="Search employees..."
+            placeholder="Search by"
             icon={<Search size={16} />}
             value={updatedFilterWord}
             onChange={(e) => setFilterWord(e.currentTarget.value)}
@@ -122,26 +142,8 @@ export const Table = () => {
         <Box sx={{ height: 600 }}>
           <DataTable
             withBorder
-            columns={[
-              {
-                accessor: "firstName",
-                sortable: true,
-                render: ({ firstName }) => `${firstName}`,
-              },
-              { accessor: "email", sortable: true },
-              { accessor: "departmentId", sortable: true },
-              {
-                accessor: "birthDate",
-                render: ({ birthDate }) =>
-                  dayjs(birthDate).format("MMM DD YYYY"),
-              },
-              {
-                accessor: "age",
-                sortable: true,
-                render: ({ birthDate }) => dayjs().diff(birthDate, "y"),
-              },
-            ]}
-            records={viewRecords}
+            columns={columns}
+            records={sortedRecords}
             totalRecords={initialRecords.length}
             recordsPerPage={PAGE_SIZE}
             page={page}

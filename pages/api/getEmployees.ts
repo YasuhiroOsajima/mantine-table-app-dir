@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { EmployeeList } from "types/data";
+import { EmployeeRecords } from "types/data";
 
 const employees = [
   {
@@ -30,9 +30,9 @@ const employees = [
   },
 ];
 
-const handler = (req: NextApiRequest, res: NextApiResponse<EmployeeList>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<EmployeeRecords>) => {
   console.log("access");
-  res.status(200).json({ employee: employees });
+  res.status(200).json({ records: employees });
 };
 
 export default handler;

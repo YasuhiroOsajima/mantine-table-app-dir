@@ -7,7 +7,7 @@ export type Employee = {
   departmentId: string;
 };
 
-export interface EmployeeList {
-  employee: Employee[];
+export interface EmployeeRecords {
+  records: Employee[];
 }
 // http://127.0.0.1:3000/api/getEmployees
