@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRecoilState, RecoilState } from "recoil";
-import { UseQueryResult } from "react-query";
 import { Box, Card, TextInput, Group } from "@mantine/core";
 import { useDebouncedValue } from "@mantine/hooks";
 import { DataTable, DataTableSortStatus } from "mantine-datatable";

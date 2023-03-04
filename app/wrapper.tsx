@@ -5,9 +5,6 @@ import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { Grid } from "@mantine/core";
-
-import { Header } from "components/share/Header/Header";
 
 import "../styles/globals.css";
 
@@ -33,11 +30,6 @@ export const App = ({ children }: { children: React.ReactNode }) => {
       >
         <NotificationsProvider limit={2}>
           <RecoilRoot>
-            <Grid className="pb-1">
-              <Grid.Col span={12}>
-                <Header />
-              </Grid.Col>
-            </Grid>
             {children}
           </RecoilRoot>
         </NotificationsProvider>

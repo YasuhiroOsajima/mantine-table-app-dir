@@ -7,7 +7,11 @@ import { IconMenu2 } from "@tabler/icons";
 import { DrawerContent } from "./DrawerContent";
 import { DrawerOpenAtom } from "state/DrawerOpenAtom";
 
-export const Header = () => {
+type HeaderTitleProps = {
+  title: string;
+};
+
+export const Header: React.FC<HeaderTitleProps> = ({ title }) => {
   const [opened, setOpened] = useRecoilState(DrawerOpenAtom);
 
   return (
@@ -33,7 +37,7 @@ export const Header = () => {
           >
             <IconMenu2 />
           </Stack>
-          <Text>Application header</Text>
+          <Text>{title}</Text>
         </Group>
       </div>
     </Card>
