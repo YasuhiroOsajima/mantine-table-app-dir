@@ -1,4 +1,5 @@
 import { configureAuth } from "react-query-auth";
+
 import {
   getUserProfile,
   registerWithEmailAndPassword,
@@ -9,12 +10,10 @@ import {
 import { storage } from "components/authPage/utils";
 
 export type LoginCredentials = {
-  email: string;
   password: string;
 };
 
 export type RegisterCredentials = {
-  email: string;
   name: string;
   password: string;
 };

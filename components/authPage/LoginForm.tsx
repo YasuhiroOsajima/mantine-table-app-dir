@@ -11,6 +11,7 @@ export const LoginForm = () => {
 
   return (
     <Box maw={320} mx="auto">
+      Login
       <form
         title="Login"
         onSubmit={(e) => {

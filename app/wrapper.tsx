@@ -3,9 +3,7 @@
 import { RecoilRoot } from "recoil";
 import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
-//import { QueryClient, QueryClientProvider } from "react-query";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-//import { ReactQueryDevtools } from "react-query/devtools";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import "../styles/globals.css";

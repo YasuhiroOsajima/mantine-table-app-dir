@@ -11,6 +11,7 @@ export const RegisterForm = () => {
 
   return (
     <Box maw={320} mx="auto">
+      Register
       <form
         title="Register"
         onSubmit={(e) => {
@@ -21,14 +22,12 @@ export const RegisterForm = () => {
         }}
       >
         <TextInput label="Name" placeholder="Name" onChange={onChange} />
-
         <PasswordInput
           placeholder="Password"
           label="Password"
           withAsterisk
           onChange={onChange}
         />
-
         <Button disabled={register.isLoading} type="submit">
           Submit
         </Button>

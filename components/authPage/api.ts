@@ -7,7 +7,6 @@ export interface AuthResponse {
 
 export interface User {
   id: string;
-  email: string;
   name?: string;
 }
 
@@ -23,7 +22,7 @@ export async function handleApiResponse(response: Response) {
 }
 
 export function getUserProfile(): Promise<{ user: User | undefined }> {
-  return fetch("/auth/me", {
+  return fetch("http://127.0.0.1:8000/users/me", {
     headers: {
       Authorization: storage.getToken(),
     },
@@ -33,7 +32,7 @@ export function getUserProfile(): Promise<{ user: User | undefined }> {
 export function loginWithEmailAndPassword(
   data: unknown
 ): Promise<AuthResponse> {
-  return fetch("/auth/login", {
+  return fetch("http://127.0.0.1:8000/token", {
     method: "POST",
     body: JSON.stringify(data),
   }).then(handleApiResponse);
