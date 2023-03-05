@@ -16,10 +16,10 @@ const Home: NextPage = () => {
         </Grid.Col>
       </Grid>
       <Grid gutter="xs">
-        <Grid.Col span={8}>
+        <Grid.Col span={9}>
           <TablePageTable />
         </Grid.Col>
-        <Grid.Col span={4}>
+        <Grid.Col span={3}>
           <TablePageMessageArea />
         </Grid.Col>
       </Grid>

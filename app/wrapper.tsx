@@ -3,8 +3,10 @@
 import { RecoilRoot } from "recoil";
 import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+//import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+//import { ReactQueryDevtools } from "react-query/devtools";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import "../styles/globals.css";
 
@@ -29,9 +31,7 @@ export const App = ({ children }: { children: React.ReactNode }) => {
         }}
       >
         <NotificationsProvider limit={2}>
-          <RecoilRoot>
-            {children}
-          </RecoilRoot>
+          <RecoilRoot>{children}</RecoilRoot>
         </NotificationsProvider>
       </MantineProvider>
       <ReactQueryDevtools initialIsOpen={false} />
