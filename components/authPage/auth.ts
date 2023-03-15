@@ -7,7 +7,7 @@ import {
   AuthResponse,
   logout,
 } from "components/authPage/api";
-import { storage } from "components/authPage/utils";
+import { tokenStorage } from "utils/storage";
 
 export type LoginCredentials = {
   password: string;
@@ -20,7 +20,7 @@ export type RegisterCredentials = {
 
 async function handleUserResponse(data: AuthResponse) {
   const { jwt, user } = data;
-  storage.setToken(jwt);
+  tokenStorage.setToken(jwt);
   return user;
 }
 

@@ -1,3 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
 import { tokenStorage } from "utils/storage";
 
 export interface AuthResponse {
@@ -21,18 +24,21 @@ export async function handleApiResponse(response: Response) {
   }
 }
 
+
 export function getUserProfile(): Promise<{ user: User | undefined }> {
-  return fetch("http://127.0.0.1:8000/users/me", {
+  const { data } = axios.get("http://127.0.0.1:8000/users/me", {
     headers: {
       Authorization: tokenStorage.getToken(),
     },
-  }).then(handleApiResponse);
+  });
+  data
 }
+
 
 export function loginWithEmailAndPassword(
   data: unknown
 ): Promise<AuthResponse> {
-  return fetch("http://127.0.0.1:8000/token", {
+  return axios.get("http://127.0.0.1:8000/token", {
     method: "POST",
     body: JSON.stringify(data),
   }).then(handleApiResponse);
@@ -41,12 +47,12 @@ export function loginWithEmailAndPassword(
 export function registerWithEmailAndPassword(
   data: unknown
 ): Promise<AuthResponse> {
-  return fetch("/auth/register", {
+  return axios.get("/auth/register", {
     method: "POST",
     body: JSON.stringify(data),
   }).then(handleApiResponse);
 }
 
 export function logout(): Promise<{ message: string }> {
-  return fetch("/auth/logout", { method: "POST" }).then(handleApiResponse);
+  return axios.get("/auth/logout", { method: "POST" }).then(handleApiResponse);
 }
