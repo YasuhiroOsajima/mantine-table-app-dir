@@ -1,6 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { bool } from "yup";
 
 import { tokenStorage } from "~/utils/storage";
 
@@ -13,17 +11,6 @@ export interface User {
   id: string;
   name?: string;
 }
-
-//export async function handleApiResponse(response: Response) {
-//  const data = await response.json();
-//
-//  if (response.ok) {
-//    return data;
-//  } else {
-//    console.error(JSON.stringify(data, null, 2));
-//    return Promise.reject(data);
-//  }
-//}
 
 export interface profile {
   username: string;
@@ -43,13 +30,6 @@ export const getUserProfile = async (): Promise<profile> => {
   const { data } = await axios.get("http://127.0.0.1:8000/users/me", config);
   return data;
 };
-//export function getUserProfile(): Promise<{ user: User | undefined }> {
-//  return fetch('/auth/me', {
-//    headers: {
-//      Authorization: storage.getToken(),
-//    },
-//  }).then(handleApiResponse);
-//}
 
 export interface Token {
   access_token: string;
@@ -75,14 +55,6 @@ export const loginWithEmailAndPassword = async (): Promise<Token> => {
   );
   return data;
 };
-//export function loginWithEmailAndPassword(
-//  data: unknown
-//): Promise<AuthResponse> {
-//  return fetch('/auth/login', {
-//    method: 'POST',
-//    body: JSON.stringify(data),
-//  }).then(handleApiResponse);
-//}
 
 export interface registerRequest {
   username: string;
@@ -125,14 +97,6 @@ export const registerWithEmailAndPassword = async (
 
   return data;
 };
-//export function registerWithEmailAndPassword(
-//  data: unknown
-//): Promise<AuthResponse> {
-//  return fetch('/auth/register', {
-//    method: 'POST',
-//    body: JSON.stringify(data),
-//  }).then(handleApiResponse);
-//}
 
 export const logout = async () => {
   let config = {
@@ -146,6 +110,3 @@ export const logout = async () => {
 
   return data;
 };
-//export function logout(): Promise<{ message: string }> {
-//  return axios.get("/auth/logout", { method: "POST" }).then(handleApiResponse);
-//}
