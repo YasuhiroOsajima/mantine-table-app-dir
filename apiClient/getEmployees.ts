@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-import { Employees } from "types/employee";
+import { Employees } from "~/types/employee";
 
 const fetchEmployees = async () => {
   const { data } = await axios.get("http://127.0.0.1:3000/api/getEmployees");

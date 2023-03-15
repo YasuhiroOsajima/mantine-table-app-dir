@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageArea } from "components/share/MessageArea/MessageArea";
+import { MessageArea } from "~/components/share/MessageArea/MessageArea";
 
 export const MainPageMessageArea = () => {
   const test = `Main page has information as follows:

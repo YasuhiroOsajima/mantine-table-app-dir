@@ -2,12 +2,12 @@
 
 import dayjs from "dayjs";
 
-import { InitialEmployeeRecordsAtom } from "state/InitialEmployeeRecordsAtom";
-import { AllEmployeeRecordsAtom } from "state/AllEmployeeRecordsAtom";
+import { InitialEmployeeRecordsAtom } from "~/state/InitialEmployeeRecordsAtom";
+import { AllEmployeeRecordsAtom } from "~/state/AllEmployeeRecordsAtom";
 
-import { Table } from "components/share/Table/Table";
-import { GetEmployees } from "apiClient/getEmployees";
-import { Employee } from "types/employee";
+import { Table } from "~/components/share/Table/Table";
+import { GetEmployees } from "~/apiClient/getEmployees";
+import { Employee } from "~/types/employee";
 
 type firstNameProps = {
   firstName: string;

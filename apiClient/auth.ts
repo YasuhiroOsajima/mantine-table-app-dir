@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-import { tokenStorage } from "utils/storage";
+import { tokenStorage } from "~/utils/storage";
 
 export interface AuthResponse {
   user: User;

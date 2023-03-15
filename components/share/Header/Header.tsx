@@ -4,8 +4,8 @@ import { useRecoilState } from "recoil";
 import { Card, Drawer, Group, Text, Stack } from "@mantine/core";
 import { IconMenu2 } from "@tabler/icons";
 
-import { DrawerContent } from "./DrawerContent";
-import { DrawerOpenAtom } from "state/DrawerOpenAtom";
+import { DrawerContent } from "~/components/share/Header/DrawerContent";
+import { DrawerOpenAtom } from "~/state/DrawerOpenAtom";
 
 type HeaderTitleProps = {
   title: string;

@@ -4,8 +4,8 @@ import { useState } from "react";
 import type { NextPage } from "next";
 import { Button } from "@mantine/core";
 
-import { LoginForm } from "components/authPage/LoginForm";
-import { RegisterForm } from "components/authPage/RegisterForm";
+import { LoginForm } from "~/components/authPage/LoginForm";
+import { RegisterForm } from "~/components/authPage/RegisterForm";
 
 const Auth: NextPage = () => {
   const [mode, setMode] = useState<"register" | "login">("register");

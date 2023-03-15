@@ -1,4 +1,4 @@
-import { App } from "app/wrapper";
+import { App } from "~/app/wrapper";
 
 export default function RootLayout({
   children,

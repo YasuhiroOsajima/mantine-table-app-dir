@@ -1,6 +1,6 @@
 import { GetEmployees } from "~/apiClient/getEmployees";
 
 test("check", () => {
-  GetEmployees();
+  const { data, isLoading, isError, error } = GetEmployees();
   console.log("OK");
 });

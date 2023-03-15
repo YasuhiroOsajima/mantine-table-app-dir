@@ -6,8 +6,8 @@ import {
   loginWithEmailAndPassword,
   AuthResponse,
   logout,
-} from "components/authPage/api";
-import { tokenStorage } from "utils/storage";
+} from "~/components/authPage/api";
+import { tokenStorage } from "~/utils/storage";
 
 export type LoginCredentials = {
   password: string;
