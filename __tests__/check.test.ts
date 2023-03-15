@@ -1,10 +1,7 @@
-//import rewire from "rewire";
-const rewire = require('rewire');
+import { fetchEmployees } from "~/apiClient/getEmployees";
 
-const __local__ = rewire("../apiClient/getEmployees.ts");
-//const __local__ = rewire("apiClient/getEmployees.ts");
-
-test("check", () => {
-  __local__.__get__("fetchEmployees");
+test("check", async () => {
+  const result = await fetchEmployees();
+  console.log(result);
   console.log("OK");
 });

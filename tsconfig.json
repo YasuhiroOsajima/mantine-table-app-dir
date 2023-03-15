@@ -15,7 +15,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
     "plugins": [
@@ -25,7 +25,9 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "~/*": ["*"]
+      "~/*": [
+        "*"
+      ]
     }
   },
   "include": [
@@ -35,5 +37,7 @@
     ".next/types/**/*.ts",
     "__tests__/**/*"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
