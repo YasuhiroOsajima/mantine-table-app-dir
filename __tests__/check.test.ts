@@ -1,7 +1,8 @@
-import { fetchEmployees } from "~/apiClient/getEmployees";
+import { loginWithEmailAndPassword } from "~/apiClient/auth";
 
 test("check", async () => {
-  const result = await fetchEmployees();
-  console.log(result);
-  console.log("OK");
+  const result = await loginWithEmailAndPassword();
+  console.log(result.access_token);
+  console.log(result.token_type);
+  console.log(result.user);
 });
