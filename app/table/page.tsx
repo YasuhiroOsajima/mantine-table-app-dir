@@ -4,8 +4,8 @@ import type { NextPage } from "next";
 import { Grid } from "@mantine/core";
 
 import { Header } from "components/share/Header/Header";
-import { TablePageTable } from "components/TablePage/Table";
-import { TablePageMessageArea } from "components/TablePage/MessageArea";
+import { TablePageTable } from "components/tablePage/Table";
+import { TablePageMessageArea } from "components/tablePage/MessageArea";
 
 const Home: NextPage = () => {
   return (
