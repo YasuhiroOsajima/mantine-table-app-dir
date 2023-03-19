@@ -3,23 +3,20 @@ import axios from "axios";
 import { tokenStorage } from "~/utils/storage";
 
 export interface AuthResponse {
-  user: User;
-  jwt: string;
+  access_token: string;
+  token_type: string;
+  user: string;
 }
 
 export interface User {
-  id: string;
-  name?: string;
-}
-
-export interface profile {
   username: string;
   email: string;
   full_name: string;
   disabled: boolean;
 }
 
-export const getUserProfile = async (): Promise<profile> => {
+// Get profile
+export const getUserProfile = async (): Promise<User> => {
   let config = {
     headers: {
       accept: "application/json",
@@ -31,13 +28,8 @@ export const getUserProfile = async (): Promise<profile> => {
   return data;
 };
 
-export interface Token {
-  access_token: string;
-  token_type: string;
-  user: string;
-}
-
-export const loginWithEmailAndPassword = async (): Promise<Token> => {
+// Login
+export const loginWithEmailAndPassword = async (): Promise<AuthResponse> => {
   const params = new URLSearchParams();
   params.append("username", "testuser");
   params.append("password", "password");
@@ -56,6 +48,7 @@ export const loginWithEmailAndPassword = async (): Promise<Token> => {
   return data;
 };
 
+// Register
 export interface registerRequest {
   username: string;
   email: string;
@@ -64,16 +57,9 @@ export interface registerRequest {
   password: string;
 }
 
-export interface register {
-  username: string;
-  email: string;
-  full_name: string;
-  disabled: boolean;
-}
-
 export const registerWithEmailAndPassword = async (
   request: registerRequest
-): Promise<register> => {
+): Promise<User> => {
   let config = {
     headers: {
       "Content-Type": "application/json",
@@ -98,6 +84,7 @@ export const registerWithEmailAndPassword = async (
   return data;
 };
 
+// Logout
 export const logout = async () => {
   let config = {
     headers: {
