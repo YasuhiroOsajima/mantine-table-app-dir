@@ -5,7 +5,7 @@ import { tokenStorage } from "~/utils/storage";
 export interface AuthResponse {
   access_token: string;
   token_type: string;
-  user: string;
+  username: string;
 }
 
 export interface User {
@@ -29,10 +29,17 @@ export const getUserProfile = async (): Promise<User> => {
 };
 
 // Login
-export const loginWithEmailAndPassword = async (): Promise<AuthResponse> => {
+export interface tokenRequest {
+  username: string;
+  password: string;
+}
+
+export const loginWithEmailAndPassword = async (
+  request: tokenRequest
+): Promise<AuthResponse> => {
   const params = new URLSearchParams();
-  params.append("username", "testuser");
-  params.append("password", "password");
+  params.append("username", request.username);
+  params.append("password", request.password);
 
   let config = {
     headers: {
