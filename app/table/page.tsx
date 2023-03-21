@@ -15,6 +15,7 @@ const Home: NextPage = () => {
           <Header title="Table page" />
         </Grid.Col>
       </Grid>
+
       <Grid gutter="xs">
         <Grid.Col span={9}>
           <TablePageTable />
