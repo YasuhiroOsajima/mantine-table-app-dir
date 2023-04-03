@@ -4,8 +4,9 @@ import {
   getUserProfile,
   registerWithEmailAndPassword,
   loginWithEmailAndPassword,
-  AuthResponse,
   logout,
+  AuthResponse,
+  User,
 } from "~/apiClient/auth";
 import { tokenStorage } from "~/utils/storage";
 
@@ -30,7 +31,7 @@ async function handleTokenResponse(data: AuthResponse) {
 }
 
 async function userFn() {
-  const result = await getUserProfile();
+  const result: User = await getUserProfile();
   return result.username ?? null;
 }
 

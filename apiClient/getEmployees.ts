@@ -4,7 +4,7 @@ import axios from "axios";
 import { Employees } from "~/types/employee";
 
 export const fetchEmployees = async () => {
-  const { data } = await axios.get("http://localhost:3000/api/getEmployees");
+  const { data } = await axios.get("http://127.0.0.1:3000/api/getEmployees");
   return data;
 };
 
