@@ -23,34 +23,32 @@ export type RegisterCredentials = {
   password: string;
 };
 
-async function handleTokenResponse(data: AuthResponse) {
-  const access_token = data.access_token;
-  const user = data.username;
+const handleTokenResponse = async (data: AuthResponse): Promise<string> => {
+  const access_token: string = data.access_token;
+  const user: string = data.username;
   tokenStorage.setToken(access_token);
   return user;
-}
+};
 
-async function userFn() {
+const userFn = async (): Promise<string> => {
   const result: User = await getUserProfile();
   return result.username ?? null;
-}
+};
 
-async function loginFn(data: LoginCredentials) {
-  const response = await loginWithEmailAndPassword(data);
-  const user = await handleTokenResponse(response);
+const loginFn = async (data: LoginCredentials): Promise<string> => {
+  const response: AuthResponse = await loginWithEmailAndPassword(data);
+  const user: string = await handleTokenResponse(response);
   return user;
-}
+};
 
-async function registerFn(data: RegisterCredentials) {
-  const response = await registerWithEmailAndPassword(data);
-  //const user = await handleTokenResponse(response);
-  //return user;
-  return response.username ?? null;
-}
+const registerFn = async (data: RegisterCredentials): Promise<string> => {
+  const user: User = await registerWithEmailAndPassword(data);
+  return user.username ?? null;
+};
 
-async function logoutFn() {
+const logoutFn = async () => {
   await logout();
-}
+};
 
 export const { useUser, useLogin, useRegister, useLogout, AuthLoader } =
   configureAuth({
