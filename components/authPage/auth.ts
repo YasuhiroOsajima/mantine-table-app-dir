@@ -23,21 +23,17 @@ export type RegisterCredentials = {
   password: string;
 };
 
-const handleTokenResponse = async (data: AuthResponse): Promise<string> => {
-  const access_token: string = data.access_token;
-  const user: string = data.username;
-  tokenStorage.setToken(access_token);
-  return user;
-};
-
 const userFn = async (): Promise<string> => {
-  const result: User = await getUserProfile();
+  const token: string = tokenStorage.getToken();
+  const result: User = await getUserProfile(token);
   return result.username ?? null;
 };
 
 const loginFn = async (data: LoginCredentials): Promise<string> => {
   const response: AuthResponse = await loginWithEmailAndPassword(data);
-  const user: string = await handleTokenResponse(response);
+  const access_token: string = response.access_token;
+  const user: string = response.username;
+  tokenStorage.setToken(access_token);
   return user;
 };
 
@@ -47,7 +43,8 @@ const registerFn = async (data: RegisterCredentials): Promise<string> => {
 };
 
 const logoutFn = async () => {
-  await logout();
+  const token: string = tokenStorage.getToken();
+  await logout(token);
 };
 
 export const { useUser, useLogin, useRegister, useLogout, AuthLoader } =

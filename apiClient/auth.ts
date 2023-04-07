@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import { tokenStorage } from "~/utils/storage";
-
 export interface AuthResponse {
   access_token: string;
   token_type: string;
@@ -16,11 +14,11 @@ export interface User {
 }
 
 // Get profile
-export const getUserProfile = async (): Promise<User> => {
+export const getUserProfile = async (token: string): Promise<User> => {
   let config = {
     headers: {
       accept: "application/json",
-      Authorization: "Bearer " + tokenStorage.getToken(),
+      Authorization: "Bearer " + token,
     },
   };
 
@@ -92,11 +90,11 @@ export const registerWithEmailAndPassword = async (
 };
 
 // Logout
-export const logout = async () => {
+export const logout = async (token: string) => {
   let config = {
     headers: {
       accept: "application/json",
-      Authorization: "Bearer " + tokenStorage.getToken(),
+      Authorization: "Bearer " + token,
     },
   };
 
