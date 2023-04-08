@@ -19,6 +19,8 @@ const queryClient = new QueryClient({
   },
 });
 
+// Todo.
+// https://codefrontend.com/reactjs-redirect-to-url/
 export const App = ({ children }: { children: React.ReactNode }) => {
   return (
     <QueryClientProvider client={queryClient}>
