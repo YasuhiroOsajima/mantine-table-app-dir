@@ -7,7 +7,6 @@ import { LoginForm } from "~/components/authPage/LoginForm";
 import { RegisterForm } from "~/components/authPage/RegisterForm";
 
 export const AuthScreen = () => {
-  console.log("TEST");
   const [mode, setMode] = useState<"register" | "login">("register");
 
   return (

@@ -19,16 +19,17 @@ export type RegisterCredentials = {
   username: string;
   email: string;
   full_name: string;
-  disabled: boolean;
   password: string;
 };
 
 const registerFn = async (data: RegisterCredentials): Promise<string> => {
+  console.log(data);
   const user: UserResponse = await registerWithEmailAndPassword(data);
   return user.username ?? null;
 };
 
 const loginFn = async (data: LoginCredentials): Promise<string> => {
+  console.log(data);
   const response: AuthResponse = await loginWithEmailAndPassword(data);
   const access_token: string = response.access_token;
   const username: string = response.username;

@@ -21,10 +21,28 @@ export const RegisterForm = () => {
           });
         }}
       >
-        <TextInput label="Name" placeholder="Name" onChange={onChange} />
+        <TextInput
+          placeholder="username"
+          name="username"
+          label="username"
+          onChange={onChange}
+        />
+        <TextInput
+          placeholder="email"
+          name="email"
+          type="email"
+          onChange={onChange}
+        />
+        <TextInput
+          placeholder="full_name"
+          name="full_name"
+          label="full_name"
+          onChange={onChange}
+        />
         <PasswordInput
-          placeholder="Password"
-          label="Password"
+          placeholder="password"
+          name="password"
+          label="password"
           withAsterisk
           onChange={onChange}
         />

@@ -19,10 +19,16 @@ export const LoginForm = () => {
           login.mutate(values);
         }}
       >
-        <TextInput label="Name" placeholder="Name" onChange={onChange} />
+        <TextInput
+          placeholder="username"
+          name="username"
+          label="username"
+          onChange={onChange}
+        />
         <PasswordInput
-          placeholder="Password"
-          label="Password"
+          placeholder="password"
+          name="password"
+          label="password"
           withAsterisk
           onChange={onChange}
         />

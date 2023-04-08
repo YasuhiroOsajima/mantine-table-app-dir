@@ -11,7 +11,6 @@ export interface registerRequest {
   username: string;
   email: string;
   full_name: string;
-  disabled: boolean;
   password: string;
 }
 
@@ -44,7 +43,7 @@ export const registerWithEmailAndPassword = async (
     username: request.username,
     email: request.email,
     full_name: request.full_name,
-    disabled: request.disabled,
+    disabled: false,
     password: request.password,
   };
 
