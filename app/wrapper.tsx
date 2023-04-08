@@ -6,6 +6,8 @@ import { NotificationsProvider } from "@mantine/notifications";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+import { AuthLoader } from "~/components/authPage/auth";
+import { AuthScreen } from "~/components/authPage/AuthScreen";
 import "../styles/globals.css";
 
 const queryClient = new QueryClient({
@@ -20,18 +22,23 @@ const queryClient = new QueryClient({
 export const App = ({ children }: { children: React.ReactNode }) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          colorScheme: "light", // lightかdark
-          fontFamily: "Verdana, sans-serif",
-        }}
+      <AuthLoader
+        renderLoading={() => <div>Loading ...</div>}
+        renderUnauthenticated={() => <AuthScreen />}
       >
-        <NotificationsProvider limit={2}>
-          <RecoilRoot>{children}</RecoilRoot>
-        </NotificationsProvider>
-      </MantineProvider>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            colorScheme: "light", // lightかdark
+            fontFamily: "Verdana, sans-serif",
+          }}
+        >
+          <NotificationsProvider limit={2}>
+            <RecoilRoot>{children}</RecoilRoot>
+          </NotificationsProvider>
+        </MantineProvider>
+      </AuthLoader>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

@@ -6,7 +6,7 @@ import {
   loginWithEmailAndPassword,
   logout,
   AuthResponse,
-  User,
+  UserResponse,
 } from "~/apiClient/auth";
 import { tokenStorage } from "~/utils/storage";
 
@@ -23,34 +23,34 @@ export type RegisterCredentials = {
   password: string;
 };
 
-const userFn = async (): Promise<string> => {
-  const token: string = tokenStorage.getToken();
-  const result: User = await getUserProfile(token);
-  return result.username ?? null;
+const registerFn = async (data: RegisterCredentials): Promise<string> => {
+  const user: UserResponse = await registerWithEmailAndPassword(data);
+  return user.username ?? null;
 };
 
 const loginFn = async (data: LoginCredentials): Promise<string> => {
   const response: AuthResponse = await loginWithEmailAndPassword(data);
   const access_token: string = response.access_token;
-  const user: string = response.username;
+  const username: string = response.username;
   tokenStorage.setToken(access_token);
-  return user;
+  return username;
 };
 
-const registerFn = async (data: RegisterCredentials): Promise<string> => {
-  const user: User = await registerWithEmailAndPassword(data);
-  return user.username ?? null;
-};
-
-const logoutFn = async () => {
+const logoutFn = async (): Promise<void> => {
   const token: string = tokenStorage.getToken();
   await logout(token);
 };
 
+const userFn = async (): Promise<string> => {
+  const token: string = tokenStorage.getToken();
+  const result: UserResponse = await getUserProfile(token);
+  return result.username ?? null;
+};
+
 export const { useUser, useLogin, useRegister, useLogout, AuthLoader } =
   configureAuth({
-    userFn,
-    loginFn,
-    registerFn,
-    logoutFn,
+    userFn: userFn,
+    loginFn: loginFn,
+    registerFn: registerFn,
+    logoutFn: logoutFn,
   });
