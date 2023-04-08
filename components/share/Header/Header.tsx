@@ -1,9 +1,10 @@
 "use client";
 
 import { useRecoilState } from "recoil";
-import { Card, Drawer, Group, Text, Stack } from "@mantine/core";
+import { Button, Card, Drawer, Group, Text, Stack } from "@mantine/core";
 import { IconMenu2 } from "@tabler/icons";
 
+import { useLogout } from "~/components/authPage/auth";
 import { DrawerContent } from "~/components/share/Header/DrawerContent";
 import { DrawerOpenAtom } from "~/state/DrawerOpenAtom";
 
@@ -13,6 +14,7 @@ type HeaderTitleProps = {
 
 export const Header: React.FC<HeaderTitleProps> = ({ title }) => {
   const [opened, setOpened] = useRecoilState(DrawerOpenAtom);
+  const logout = useLogout({});
 
   return (
     <Card shadow="sm" radius="md" withBorder className="h-15 bg-red-200 px-2">
@@ -26,7 +28,6 @@ export const Header: React.FC<HeaderTitleProps> = ({ title }) => {
         >
           <DrawerContent />
         </Drawer>
-
         <Group position="center" className="pl-2">
           <Stack
             align="center"
@@ -37,7 +38,12 @@ export const Header: React.FC<HeaderTitleProps> = ({ title }) => {
           >
             <IconMenu2 />
           </Stack>
+
           <Text>{title}</Text>
+
+          <Button disabled={logout.isLoading} onClick={() => logout.mutate({})}>
+            Log Out
+          </Button>
         </Group>
       </div>
     </Card>
