@@ -2,7 +2,7 @@
 
 import { RecoilRoot } from "recoil";
 import { MantineProvider } from "@mantine/core";
-import { NotificationsProvider } from "@mantine/notifications";
+import { Notifications } from "@mantine/notifications";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
@@ -36,9 +36,9 @@ export const App = ({ children }: { children: React.ReactNode }) => {
             fontFamily: "Verdana, sans-serif",
           }}
         >
-          <NotificationsProvider limit={2}>
+          <Notifications limit={2}>
             <RecoilRoot>{children}</RecoilRoot>
-          </NotificationsProvider>
+          </Notifications>
         </MantineProvider>
       </AuthLoader>
       <ReactQueryDevtools initialIsOpen={false} />
