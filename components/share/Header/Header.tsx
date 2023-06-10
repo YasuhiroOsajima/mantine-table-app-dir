@@ -2,7 +2,7 @@
 
 import { useRecoilState } from "recoil";
 import { Button, Card, Drawer, Group, Text, Stack } from "@mantine/core";
-import { IconMenu2 } from "@tabler/icons";
+import { IconMenu2 } from "@tabler/icons-react";
 
 import { useLogout } from "~/components/authPage/auth";
 import { DrawerContent } from "~/components/share/Header/DrawerContent";
