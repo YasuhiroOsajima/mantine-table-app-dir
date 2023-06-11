@@ -2,8 +2,8 @@
 
 import { PasswordInput, TextInput, Button, Box } from "@mantine/core";
 
-import { RegisterCredentials, useRegister } from "~/components/authPage/auth";
-import { useForm } from "~/components/authPage/useForm";
+import { RegisterCredentials, useRegister } from "@/components/authPage/auth";
+import { useForm } from "@/components/authPage/useForm";
 
 export const RegisterForm = () => {
   const register = useRegister();

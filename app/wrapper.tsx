@@ -6,9 +6,9 @@ import { Notifications } from "@mantine/notifications";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import { AuthLoader } from "~/components/authPage/auth";
-import { AuthScreen } from "~/components/authPage/AuthScreen";
-import "../styles/globals.css";
+import { AuthLoader } from "@/components/authPage/auth";
+import { AuthScreen } from "@/components/authPage/AuthScreen";
+import "./globals.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {

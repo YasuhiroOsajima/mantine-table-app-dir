@@ -5,7 +5,7 @@ import Link from "next/link";
 import { NavLink } from "@mantine/core";
 import { IconHome2, IconBorderAll } from "@tabler/icons-react";
 
-import { DrawerOpenAtom } from "~/state/DrawerOpenAtom";
+import { DrawerOpenAtom } from "@/state/DrawerOpenAtom";
 import { imageOptimizer } from "next/dist/server/image-optimizer";
 
 export const DrawerContent = () => {

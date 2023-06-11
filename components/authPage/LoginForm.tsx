@@ -2,8 +2,8 @@
 
 import { PasswordInput, TextInput, Button, Box } from "@mantine/core";
 
-import { LoginCredentials, useLogin } from "~/components/authPage/auth";
-import { useForm } from "~/components/authPage/useForm";
+import { LoginCredentials, useLogin } from "@/components/authPage/auth";
+import { useForm } from "@/components/authPage/useForm";
 
 export const LoginForm = () => {
   const login = useLogin();

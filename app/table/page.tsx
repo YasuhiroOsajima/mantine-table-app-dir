@@ -2,9 +2,9 @@
 
 import { Container, Grid } from "@mantine/core";
 
-import { Header } from "~/components/share/Header/Header";
-import { TablePageTable } from "~/components/tablePage/Table";
-import { TablePageMessageArea } from "~/components/tablePage/MessageArea";
+import { Header } from "@/components/share/Header/Header";
+import { TablePageTable } from "@/components/tablePage/Table";
+import { TablePageMessageArea } from "@/components/tablePage/MessageArea";
 
 const Home = () => {
   return (

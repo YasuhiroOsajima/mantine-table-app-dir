@@ -6,10 +6,10 @@ import { Box, Card, TextInput, Group } from "@mantine/core";
 import { useDebouncedValue } from "@mantine/hooks";
 import { DataTable, DataTableSortStatus } from "mantine-datatable";
 import sortBy from "lodash/sortBy";
-import { Search } from "tabler-icons-react";
+import { IconSearch } from "@tabler/icons-react";
 
-import { Create } from "~/components/share/Table/Create";
-import { Delete } from "~/components/share/Table/Delete";
+import { Create } from "@/components/share/Table/Create";
+import { Delete } from "@/components/share/Table/Delete";
 
 const PAGE_SIZE = 14;
 
@@ -135,7 +135,7 @@ export const Table: React.FC<Props> = ({
           <TextInput
             sx={{ flexBasis: "60%" }}
             placeholder="Search by"
-            icon={<Search size={16} />}
+            icon={<IconSearch size={16} />}
             value={updatedFilterWord}
             onChange={(e) => setFilterWord(e.currentTarget.value)}
           />

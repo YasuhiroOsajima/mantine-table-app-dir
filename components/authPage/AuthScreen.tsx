@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Button } from "@mantine/core";
 
-import { LoginForm } from "~/components/authPage/LoginForm";
-import { RegisterForm } from "~/components/authPage/RegisterForm";
+import { LoginForm } from "@/components/authPage/LoginForm";
+import { RegisterForm } from "@/components/authPage/RegisterForm";
 
 export const AuthScreen = () => {
   const [mode, setMode] = useState<"register" | "login">("login");

@@ -2,11 +2,12 @@
 
 import { useRecoilState } from "recoil";
 import { Button, Card, Drawer, Group, Text, Stack } from "@mantine/core";
+// https://tabler-icons.io/
 import { IconMenu2 } from "@tabler/icons-react";
 
-import { useLogout } from "~/components/authPage/auth";
-import { DrawerContent } from "~/components/share/Header/DrawerContent";
-import { DrawerOpenAtom } from "~/state/DrawerOpenAtom";
+import { useLogout } from "@/components/authPage/auth";
+import { DrawerContent } from "@/components/share/Header/DrawerContent";
+import { DrawerOpenAtom } from "@/state/DrawerOpenAtom";
 
 type HeaderTitleProps = {
   title: string;

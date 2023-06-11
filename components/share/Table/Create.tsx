@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button, Modal } from "@mantine/core";
-import { Tool } from "tabler-icons-react";
+import { IconTool } from "@tabler/icons-react";
 
 export const Create = () => {
   const [createOpened, setCreateOpened] = useState(false);
@@ -19,7 +19,7 @@ export const Create = () => {
 
       <Button
         uppercase
-        leftIcon={<Tool size={16} />}
+        leftIcon={<IconTool size={16} />}
         color="blue"
         onClick={() => setCreateOpened(true)}
       >

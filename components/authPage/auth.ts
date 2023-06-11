@@ -7,8 +7,8 @@ import {
   logout,
   AuthResponse,
   UserResponse,
-} from "~/apiClient/auth";
-import { tokenStorage } from "~/utils/storage";
+} from "@/apiClient/auth";
+import { tokenStorage } from "@/utils/storage";
 
 export type LoginCredentials = {
   username: string;

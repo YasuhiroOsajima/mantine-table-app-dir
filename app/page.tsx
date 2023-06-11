@@ -2,9 +2,9 @@
 
 import { Container, Grid } from "@mantine/core";
 
-import { Header } from "~/components/share/Header/Header";
-import { MainPageAccordion } from "~/components/mainPage/Accordion";
-import { MainPageMessageArea } from "~/components/mainPage/MessageArea";
+import { Header } from "@/components/share/Header/Header";
+import { MainPageAccordion } from "@/components/mainPage/Accordion";
+import { MainPageMessageArea } from "@/components/mainPage/MessageArea";
 
 const Home = () => {
   return (
