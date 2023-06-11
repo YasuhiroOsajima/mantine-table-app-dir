@@ -4,3 +4,6 @@
 yarn install
 yarn dev
 ```
+
+using with following repository:  
+<https://github.com/YasuhiroOsajima/mantine_table_app_api>
