@@ -36,9 +36,8 @@ export const App = ({ children }: { children: React.ReactNode }) => {
             fontFamily: "Verdana, sans-serif",
           }}
         >
-          <Notifications limit={2}>
-            <RecoilRoot>{children}</RecoilRoot>
-          </Notifications>
+          <Notifications />
+          <RecoilRoot>{children}</RecoilRoot>
         </MantineProvider>
       </AuthLoader>
       <ReactQueryDevtools initialIsOpen={false} />

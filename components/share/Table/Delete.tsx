@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@mantine/core";
-import { showNotification } from "@mantine/notifications";
+import { notifications } from "@mantine/notifications";
 
 import { IconTrash } from "@tabler/icons-react";
 
@@ -19,7 +19,7 @@ export const Delete = (prop: Props) => {
       color="red"
       disabled={!prop.selectedRecords.length}
       onClick={() =>
-        showNotification({
+        notifications.show({
           color: "red",
           message: "Deleting data is dangerous!",
         })
