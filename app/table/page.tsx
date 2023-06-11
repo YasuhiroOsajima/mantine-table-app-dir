@@ -6,7 +6,7 @@ import { Header } from "@/components/share/Header/Header";
 import { TablePageTable } from "@/components/tablePage/Table";
 import { TablePageMessageArea } from "@/components/tablePage/MessageArea";
 
-const Home = () => {
+const Table = () => {
   return (
     <Container fluid>
       <Grid className="pb-1">
@@ -27,4 +27,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Table;
